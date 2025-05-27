@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Junta de Vecinos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Junta de Vecinos - Villa Viñedos de Rengo</h1>
+    <nav>
+      <ul>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#noticias">Noticias</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="quienes-somos">
+    <h2>¿Quiénes Somos?</h2>
+
+    <p>Somos una comunidad que cree en el poder de la unión vecinal! &#10084; Nuestro enfoque está en hacer de nuestra villa un lugar mejor.</p>
+  <div class="galeria">
+  <figure class="imagen-con-titulo">
+    <figcaption>Actividad Recreativa Día del Niño 2024</figcaption>
+    <img src="imagenesjjvv/Diadelnino.jpg" alt="Actividad recreativa">
+  </figure>
+  <figure class="imagen-con-titulo">
+    <figcaption>Proyecto CONAF - Donación 30 Árboles</figcaption>
+    <img src="imagenesjjvv/Conaf.jpg" alt="Colaboración CONAF">
+  </figure>
+  <figure class="imagen-con-titulo">
+    <figcaption>Entrega de Regalos Fiesta Navideña 2024</figcaption>
+    <img src="imagenesjjvv/Navidad.jpg" alt="Entrega de Regalos">
+  </figure>
+  <figure class="imagen-con-titulo">
+    <figcaption>Pista de Baile Aniversario 2025</figcaption>
+    <img src="imagenesjjvv/Aniversario.jpg" alt="Pista de Baile">
+  </figure>
+  <figure class="imagen-con-titulo">
+    <figcaption>Equipo Campeón Baby Futbol 2025</figcaption>
+    <img src="imagenesjjvv/BabyCampeones.jpg" alt="Campeones Campeonato Baby Fútbol 2025">
+  </figure>
+  <figure class="imagen-con-titulo">
+    <figcaption>Actividad Social - Mejoramiento Seguridad</figcaption>
+    <img src="imagenesjjvv/Mejoras.jpg" alt="Instalación concertina">
+  </figure>
+</div>
+  </section>
+
+  <section id="noticias">
+    <h2>Noticias Recientes</h2>
+    <ul>
+      <li>📢 Reunión Online Jueves 08 de Mayo a las 19:00 hrs.</li>
+       <p>Presentación de proyectos en desarrollo con Departamento de Organizaciones Comunitarias y Seguridad Pública.
+         Información de Ingresos Mensuales.</p>
+         <figure class="imagen-con-titulo">
+  <figcaption>¡Descarga la presentación de la reunión escaneando el QR!</figcaption>
+  <img src="QRPresentacion.png" alt="Descripción de la imagen" width="200">
+      </figure>
+      <li>📢 Operativo Visual Domingo 18 de Mayo 19:00 - 21:00 hrs.</li> 
+      <figure class="imagen-con-titulo">
+  <figcaption>¡Inscríbete!</figcaption>
+  <img src="QROperativoOptico.jpg" alt="Descripción de la imagen" width="200">
+      </figure>
+      <li>🛠️ Ejecución de Proyecto "Mejoramiento de Sitios Eriazos Públicos".</li> 
+      <figure class="imagen-con-titulo">
+  <figcaption>Revisa la planimetría del proyecto escaneando el QR</figcaption>
+  <img src="QRPlanimetria.png" alt="Descripción de la imagen" width="200">
+      </figure>
+      <li>🛠️ Gestiones para Proyecto "Alarmas Comunitarias".</li>
+      <figure class="imagen-con-titulo">
+  <figcaption>Revisa el boceto de la instalación de las alarmas escaneando el QR</figcaption>
+  <img src="QRAlarmas.png" alt="Descripción de la imagen" width="200">
+      </figure>
+    </ul>
+  </section>
+
+  <section id="eventos">
+    <h2>Próximos Eventos</h2>
+    <p>Bingo Comunitario - Sábado 31 de Mayo desde las 16:00 hrs</p>
+    <figure class="imagen-con-titulo">
+  <figcaption>Ingresa tu colaboración en el siguiente Código QR</figcaption>
+  <img src="QRFormularioBingo.png" alt="Descripción de la imagen" width="200">
+      </figure>
+  </section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <form id="contactForm" action="https://formspree.io/f/xanorqok" method="POST" class="formulario-contacto">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+    <button type="submit">Enviar mensaje</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // evitar envío normal
+
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          window.location.href = 'gracias.html'; // redirige a la página de gracias
+        } else {
+          alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+        }
+      } catch (error) {
+        alert('Error de red. Por favor, verifica tu conexión e intenta nuevamente.');
+      }
+    });
+  </script>
+</section>
+
+<footer>
+  <p>&copy; 2025 Junta de Vecinos - Villa Viñedos de Rengo</p>
+  <div class="redes-sociales">
+    <a href="https://www.facebook.com/Comunidad.Vinedosderengo" target="_blank">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/vinedosderengo/?igsh=dTJhZ216bHByNnpw#" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
